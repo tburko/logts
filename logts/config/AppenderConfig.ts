@@ -1,5 +1,5 @@
 import Level from '../Level';
-import { clone, merge } from '../util';
+import { clone, merge } from '../Util';
 
 export class AppenderConfig {
 	level: Level = Level.ALL;
