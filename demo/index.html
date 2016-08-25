@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LogTs Demo</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="/node_modules/systemjs/dist/system.js"></script>
+	<script>
+		System.config({
+			baseURL: '/build',
+			packages: {
+				demo: {
+					defaultExtension: 'js',
+					format: 'cjs',
+					main: 'index'
+				},
+				logts: {
+					defaultExtension: 'js',
+					format: 'cjs',
+					main: 'index'
+				}
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>LogTs Demos</h1>
+
+	<script>
+		var createButton = function(name, label, isActive) {
+			var el = document.createElement('button');
+			el.appendChild(document.createTextNode(label));
+			el.value = name;
+			el.addEventListener('click', function() {
+				window.location.search = '?' + name;
+			});
+
+			return el;
+		};
+
+		var createButtons = function(demos, currentDemo, parentEl) {
+			for (name in demos) {
+				var label = demos[name];
+				var isActive = currentDemo === name;
+				document.body.appendChild(createButton(name, label, isActive));
+			}
+		};
+
+		document.addEventListener('DOMContentLoaded', () => {
+			var demos = {
+				basics: 'Basics',
+				config: 'Configuration',
+				custom_appender: 'Custom Appender',
+				history: 'History'
+			};
+
+			var demo = location.search.substring(1) || 'basics';
+
+			createButtons(demos, demo, document.body);
+
+			System.import('demo/' + demo);
+		});
+	</script>
+</body>
+</html>

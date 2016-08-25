@@ -1,0 +1,44 @@
+{
+  "name": "logts",
+  "version": "0.0.1",
+  "description": "Logger for TypeScript",
+  "scripts": {
+    "clean": "rm -rf build",
+    "compile": "tsc",
+    "compile:w": "tsc -w",
+    "build": "npm run compile -s && npm run lint -s && npm run test -s",
+    "lint": "tslint logts/**/*.ts",
+    "postinstall": "npm run typings",
+    "server": "http-server",
+    "pretest": "npm run compile -s && npm run lint -s",
+    "test": "mocha --opts mocha.opts",
+    "test:w": "npm test -- -w",
+    "typings": "typings install"
+  },
+  "keywords": [
+    "TypeScript",
+    "log",
+    "logger"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tburko/logts.git"
+  },
+  "main": "./build/logts/index.js",
+  "typings": "./build/logts/index.d.ts",
+  "author": "Taras Burko",
+  "homepage": "https://github.com/tburko/logts#readme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tburko/logts/issues"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "http-server": "^0.9.0",
+    "mocha": "^3.0.2",
+    "systemjs": "^0.19.31",
+    "tslint": "^3.14.0",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.2"
+  }
+}

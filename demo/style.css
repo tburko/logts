@@ -1,0 +1,30 @@
+html, body {
+	background: #1e1e1e;
+	color: #d4d4d4;
+	font-family: monospace;
+}
+
+.entry {
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.entry.TRACE { opacity: .2; }
+.entry.DEBUG { opacity: .4; }
+.entry.LOG { opacity: .8; }
+.entry.INFO { color: #5db0d7; }
+.entry.WARN { color: #b7ba7d; }
+.entry.ERROR { color: #f29766; }
+
+.entry .name {
+	display: inline-block;
+	font-weight: bold;
+	margin-right: 1em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 8em;
+}
+
+.entry .text {
+	display: inline-block;
+}
