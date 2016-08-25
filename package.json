@@ -10,7 +10,7 @@
     "lint": "tslint logts/**/*.ts",
     "postinstall": "npm run typings",
     "server": "http-server",
-    "pretest": "npm run compile -s && npm run lint -s",
+    "pretest": "npm run clean -s && npm run compile -s && npm run lint -s",
     "test": "mocha --opts mocha.opts",
     "test:w": "npm test -- -w",
     "typings": "typings install"
