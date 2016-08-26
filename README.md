@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/tburko/logts.svg?branch=master)](https://travis-ci.org/tburko/logts)
+[![Coverage Status](https://coveralls.io/repos/github/tburko/logts/badge.svg?branch=master)](https://coveralls.io/github/tburko/logts?branch=master)
 [![Dependencies](https://david-dm.org/tburko/logts.svg)](https://david-dm.org/tburko/logts)
 [![Dev Dependencies](https://david-dm.org/tburko/logts/dev-status.svg)](https://david-dm.org/tburko/logts?type=dev)
 
