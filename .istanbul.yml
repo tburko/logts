@@ -1,0 +1,6 @@
+reporting:
+    print: both
+    reports:
+        - lcov
+        - json
+    dir: ./build/coverage

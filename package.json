@@ -5,15 +5,16 @@
   "scripts": {
     "clean": "rm -rf build",
     "compile": "tsc",
+    "postcompile": "npm run lint -s",
     "compile:w": "tsc -w",
-    "build": "npm run compile -s && npm run lint -s && npm run test -s",
+    "coverage:remap": "remap-istanbul -i build/coverage/coverage-final.json -o build/coverage/html-report -t html",
     "lint": "tslint logts/**/*.ts",
-    "postinstall": "npm run typings",
+    "postinstall": "npm run typings -s",
     "server": "http-server",
-    "pretest": "npm run clean -s && npm run compile -s && npm run lint -s",
-    "test": "istanbul cover --dir ./build/coverage --report json --report html _mocha -- --opts mocha.opts",
-    "posttest": "cat build/coverage/coverage.json | remap-istanbul -o build/coverage/coverage.ts.json",
-    "test:w": "npm test -- -w",
+    "pretest": "npm run clean -s && npm run compile -s",
+    "test": "istanbul cover _mocha -- --opts mocha.opts",
+    "posttest": "npm run coverage:remap -s",
+    "test:w": "mocha --opts mocha.opts -w",
     "typings": "typings install"
   },
   "keywords": [
