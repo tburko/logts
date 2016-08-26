@@ -1,6 +1,7 @@
 .DS_Store
 
 build
+coverage
 node_modules
 typings
 
