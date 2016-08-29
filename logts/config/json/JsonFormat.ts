@@ -13,7 +13,9 @@ export function readAppenderConfig(input: AppenderConfigJson): AppenderConfig {
 	if (typeof input === 'string') {
 		level = Level.fromName(input);
 	} else if (typeof input === 'object') {
-		options = input;
+		if (input.hasOwnProperty('options')) {
+			options = input.options;
+		}
 
 		if (typeof input.level === 'string') {
 			level = Level.fromName(input.level);
@@ -31,7 +33,7 @@ export function read(json: LogTsConfigJson): LogTsConfig {
 	if (json.hasOwnProperty('appenders')) {
 		const appenders = json.appenders;
 
-		if (typeof appenders !== 'object') {
+		if (!(typeof appenders === 'object' && appenders !== null)) {
 			throw new Error('Invalid "appenders" type');
 		}
 
@@ -40,11 +42,11 @@ export function read(json: LogTsConfigJson): LogTsConfig {
 		}
 	}
 
-	if (json.hasOwnProperty('logs')) {
+	if (json.hasOwnProperty('loggers')) {
 		const loggers = json.loggers;
 
-		if (typeof loggers !== 'object') {
-			throw new Error('Invalid "logs" type');
+		if (!(typeof loggers === 'object' && loggers !== null)) {
+			throw new Error('Invalid "loggers" type');
 		}
 
 		for (const name in loggers) {
