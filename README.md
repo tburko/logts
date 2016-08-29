@@ -30,7 +30,7 @@ logger.debug('Meaning:', 42);
 ## Levels
 
 ```typescript
-import Level from 'logts';
+import { Level } from 'logts';
 
 // set parent logger level
 logts.getLogger('examples').setLevel(Level.WARN);
